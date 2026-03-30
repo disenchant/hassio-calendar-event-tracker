@@ -1,11 +1,11 @@
 {
-  "name": "trash-card",
-  "version": "2.4.8",
-  "description": "TrashCard - indicates what type of trash will be picked up next based on your calendar entries 🗑️",
+  "name": "calendar-event-tracker",
+  "version": "3.0.0",
+  "description": "CalendarEventTracker - indicates what type of event is happening next based on your calendar entries 📅",
   "keywords": [
     "paper",
     "card",
-    "trash",
+    "event",
     "waste",
     "home-assistant",
     "hacs",
@@ -16,7 +16,7 @@
     "calendar"
   ],
   "private": true,
-  "main": "dist/trashcard.js",
+  "main": "dist/calendar-event-tracker.js",
   "scripts": {
     "start": "rollup -c --watch --bundleConfigAsCjs",
     "build": "rollup -c --bundleConfigAsCjs",
@@ -27,10 +27,10 @@
     "start:hass": "docker run --rm -p8123:8123 -v ${PWD}/.hass_dev:/config homeassistant/home-assistant",
     "start:hass-cmd": "docker run --rm -p8123:8123 -v  %cd%/.hass_dev:/config homeassistant/home-assistant"
   },
-  "author": "Sven Vetsch (based on work by Florian Triebel)",
+  "author": "Sven Vetsch",
   "repository": {
     "type": "git",
-    "url": "https://github.com/disenchant/hassio-trash-card"
+    "url": "https://github.com/disenchant/hassio-calendar-event-tracker"
   },
   "license": "ISC",
   "dependencies": {

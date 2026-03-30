@@ -1,6 +1,6 @@
 # How to Create a New Release
 
-This project uses GitHub Actions (`.github/workflows/release.yaml`) to automate the release process. When a new version tag (e.g., `2.4.8`) is pushed to the repository, the workflow automatically builds the project, attaches the compiled `trashcard.js` file, and creates a **draft** release on GitHub.
+This project uses GitHub Actions (`.github/workflows/release.yaml`) to automate the release process. When a new version tag (e.g., `2.4.8`) is pushed to the repository, the workflow automatically builds the project, attaches the compiled `calendar-event-tracker.js` file, and creates a **draft** release on GitHub.
 
 Follow these steps to create a new release:
 
@@ -37,7 +37,7 @@ git push origin 2.4.8
 1. Once the tag is pushed, go to the **Actions** tab in your GitHub repository. You will see the `Release` workflow running.
 2. Wait for the workflow to complete successfully.
 3. Navigate to the **Releases** section on the right side of your GitHub repository's main page.
-4. You will see a new **Draft** release created by the workflow. It will have auto-generated release notes based on your pull requests/commits, and the `dist/trashcard.js` file will be attached as an asset.
+4. You will see a new **Draft** release created by the workflow. It will have auto-generated release notes based on your pull requests/commits, and the `dist/calendar-event-tracker.js` file will be attached as an asset.
 5. Click **Edit** (the pencil icon) on the draft release.
 6. Review the release notes. You can modify them to be more descriptive if needed.
 7. Click **Publish release**.

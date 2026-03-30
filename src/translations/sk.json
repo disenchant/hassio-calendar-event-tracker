@@ -75,7 +75,7 @@
                 "icon_size": "Veľkosť ikony",
                 "with_label": "Zobraziť označenie"
             },
-            "trash": {
+            "event": {
                 "pattern": {
                     "title": "Upraviť vzor",
                     "edit": "upraviť",
@@ -103,7 +103,7 @@
     },
     "card": {
         "not_found": "Entita sa nenašla",
-        "trash": {
+        "event": {
             "today": "dnes",
             "tomorrow": "zajtra",
             "day": "<DAY>",

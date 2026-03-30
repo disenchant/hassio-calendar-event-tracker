@@ -75,7 +75,7 @@
                 "icon_size": "Icongröße",
                 "with_label": "Bezeichnung anzeigen"
             },
-            "trash": {
+            "event": {
                 "pattern": {
                     "title": "Vorlage bearbeiten",
                     "edit": "bearbeiten",
@@ -103,7 +103,7 @@
     },
     "card": {
         "not_found": "Entität nicht gefunden",
-        "trash": {
+        "event": {
             "today": "Heute",
             "tomorrow": "Morgen",
             "day": "<DAY>",

@@ -75,7 +75,7 @@
                 "icon_size": "Rozmiar ikony",
                 "with_label": "Pokaż oznaczenie"
             },
-            "trash": {
+            "event": {
                 "pattern": {
                     "title": "Edytuj wzorzec",
                     "edit": "edytuj",
@@ -103,7 +103,7 @@
     },
     "card": {
         "not_found": "Encji nie znaleziono",
-        "trash": {
+        "event": {
             "today": "dziś",
             "tomorrow": "jutro",
             "day": "<DAY>",

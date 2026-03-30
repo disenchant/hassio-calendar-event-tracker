@@ -75,7 +75,7 @@
                 "icon_size": "Ikonstørrelse",
                 "with_label": "Vis etiket"
             },
-            "trash": {
+            "event": {
                 "pattern": {
                     "title": "Rediger mønster",
                     "edit": "rediger",
@@ -103,7 +103,7 @@
     },
     "card": {
         "not_found": "Entitet ikke fundet",
-        "trash": {
+        "event": {
             "today": "i dag",
             "tomorrow": "i morgen",
             "day": "<DAY>",

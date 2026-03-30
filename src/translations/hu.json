@@ -75,7 +75,7 @@
         "icon_size": "Ikon mérete",
         "with_label": "Címke megjelenítése"
       },
-      "trash": {
+      "event": {
         "pattern": {
           "title": "Minta szerkesztése",
           "edit": "szerkeszt",
@@ -103,7 +103,7 @@
   },
   "card": {
     "not_found": "Entitás nem található",
-    "trash": {
+    "event": {
       "today": "ma",
       "tomorrow": "holnap",
       "day": "<DAY>",

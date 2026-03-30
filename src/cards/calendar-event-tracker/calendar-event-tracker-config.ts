@@ -40,7 +40,7 @@ const COLORMODES = [
   'icon'
 ] as const;
 
-interface TrashCardConfig {
+interface CalendarEventTrackerConfig {
   entities?: string[];
   pattern?: ItemSettings[];
   location?: string;
@@ -69,7 +69,7 @@ interface TrashCardConfig {
   only_all_day_events?: boolean;
 }
 
- type CardStyleConfig = Pick<TrashCardConfig, 'hide_time_range' | 'day_style' | 'day_style_format' | 'layout' | 'color_mode' | 'icon_size' | 'with_label'>;
+ type CardStyleConfig = Pick<CalendarEventTrackerConfig, 'hide_time_range' | 'day_style' | 'day_style_format' | 'layout' | 'color_mode' | 'icon_size' | 'with_label'>;
 
 const entityCardConfigStruct = assign(
   defaultConfigStruct,
@@ -123,7 +123,7 @@ export {
 };
 
 export type {
-  TrashCardConfig,
+  CalendarEventTrackerConfig,
   CardStyleConfig
 };
 

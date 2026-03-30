@@ -83,7 +83,7 @@
                 "icon_size": "Taille de l'icône",
                 "with_label": "Afficher l'étiquette"
             },
-            "trash": {
+            "event": {
                 "pattern": {
                     "title": "Modifier le motif",
                     "edit": "Modifier",
@@ -114,12 +114,12 @@
     "card": {
         "not_found": {
             "title": "Entitées non définies",
-            "description": "Veuillez sélectionner au moins une entité de calendrier pour que TrashCard fonctionne."
+            "description": "Veuillez sélectionner au moins une entité de calendrier pour que CalendarEventTracker fonctionne."
         },
         "empty": {
             "description": "Aucun événement trouvé. Ce message n'est visible que pendant l'édition."
         },
-        "trash": {
+        "event": {
             "today": "Aujourd'hui",
             "tomorrow": "Demain",
             "day": "<DAY>",

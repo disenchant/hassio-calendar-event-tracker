@@ -1,7 +1,7 @@
-import { CARDSTYLES, ALIGNMENTSTYLES, COLORMODES, DAYSTYLES, LAYOUTS, LAYOUT_ICONS } from './trash-card-config';
+import { CARDSTYLES, ALIGNMENTSTYLES, COLORMODES, DAYSTYLES, LAYOUTS, LAYOUT_ICONS } from './calendar-event-tracker-config';
 
 import type { LocalizeFunc } from '../../utils/ha';
-import type { TrashCardConfig } from './trash-card-config';
+import type { CalendarEventTrackerConfig } from './calendar-event-tracker-config';
 import type { HaFormSchema } from '../../utils/form/ha-form';
 
 const getPatternOthersSchema = (localize: LocalizeFunc, customLocalize?: LocalizeFunc) => [
@@ -20,7 +20,7 @@ const getPatternOthersSchema = (localize: LocalizeFunc, customLocalize?: Localiz
   },
   ...customLocalize ?
     [{
-      label: customLocalize(`editor.card.trash.pattern.fields.max_items`),
+      label: customLocalize(`editor.card.event.pattern.fields.max_items`),
       name: 'max_items',
       selector: {
         number: {
@@ -36,7 +36,7 @@ const getPatternOthersSchema = (localize: LocalizeFunc, customLocalize?: Localiz
 
 const getPatternSchema = (customLocalize: LocalizeFunc, localize: LocalizeFunc) => [
   {
-    label: customLocalize(`editor.card.trash.pattern.fields.label`),
+    label: customLocalize(`editor.card.event.pattern.fields.label`),
     name: 'label',
     selector: {
       text: {}
@@ -44,23 +44,23 @@ const getPatternSchema = (customLocalize: LocalizeFunc, localize: LocalizeFunc) 
   },
   ...getPatternOthersSchema(localize, customLocalize),
   {
-    label: customLocalize(`editor.card.trash.pattern.fields.pattern`),
+    label: customLocalize(`editor.card.event.pattern.fields.pattern`),
     name: 'pattern',
     selector: {
       text: {}
     }
   },
   {
-    label: customLocalize(`editor.card.trash.pattern.fields.pattern_exact`),
-    helper: customLocalize(`editor.card.trash.pattern.fields.pattern_exact_description`),
+    label: customLocalize(`editor.card.event.pattern.fields.pattern_exact`),
+    helper: customLocalize(`editor.card.event.pattern.fields.pattern_exact_description`),
     name: 'pattern_exact',
     selector: {
       boolean: {}
     }
   },
   {
-    label: customLocalize(`editor.card.trash.pattern.fields.picture_url`),
-    helper: customLocalize(`editor.card.trash.pattern.fields.picture_url_description`),
+    label: customLocalize(`editor.card.event.pattern.fields.picture_url`),
+    helper: customLocalize(`editor.card.event.pattern.fields.picture_url_description`),
     name: 'picture',
     selector: {
       text: {}
@@ -68,7 +68,7 @@ const getPatternSchema = (customLocalize: LocalizeFunc, localize: LocalizeFunc) 
     context: { icon_entity: 'entity' }
   },
   {
-    label: customLocalize(`editor.card.trash.pattern.fields.max_items`),
+    label: customLocalize(`editor.card.event.pattern.fields.max_items`),
     name: 'max_items',
     selector: {
       number: {
@@ -81,7 +81,7 @@ const getPatternSchema = (customLocalize: LocalizeFunc, localize: LocalizeFunc) 
   }
 ];
 
-const getSchema = (customLocalize: LocalizeFunc, currentValues: TrashCardConfig, localize: LocalizeFunc) => {
+const getSchema = (customLocalize: LocalizeFunc, currentValues: CalendarEventTrackerConfig, localize: LocalizeFunc) => {
   const settings: HaFormSchema[] = [
 
     {

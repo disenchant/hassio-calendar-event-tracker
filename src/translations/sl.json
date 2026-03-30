@@ -75,7 +75,7 @@
                 "icon_size": "Velikost ikone",
                 "with_label": "Pokaži oznako"
             },
-            "trash": {
+            "event": {
                 "pattern": {
                     "title": "Uredi vzorec",
                     "edit": "uredi",
@@ -103,7 +103,7 @@
     },
     "card": {
         "not_found": "Ne najdem entitete",
-        "trash": {
+        "event": {
             "today": "danes",
             "tomorrow": "jutri",
             "day": "<DAY>",

@@ -3,7 +3,7 @@
     "empty": {
       "description": "No momento, nenhum evento foi encontrado. Essa mensagem só está disponível durante a edição."
     },
-    "trash": {
+    "event": {
       "day": "<DAY>",
       "today": "hoje",
       "daysleft": "em <DAYS> dia",
@@ -17,12 +17,12 @@
     },
     "not_found": {
       "title": "Nenhuma entidade definida",
-      "description": "Selecione pelo menos uma entidade de calendário para que o TrashCard funcione."
+      "description": "Selecione pelo menos uma entidade de calendário para que o CalendarEventTracker funcione."
     }
   },
   "editor": {
     "card": {
-      "trash": {
+      "event": {
         "pattern": {
           "edit": "editar",
           "type": {

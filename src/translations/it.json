@@ -79,7 +79,7 @@
         "icon_size": "Dimensione dell'icona",
         "with_label": "Mostra etichetta"
       },
-      "trash": {
+      "event": {
         "pattern": {
           "title": "Modifica del modello",
           "edit": "modificare",
@@ -110,12 +110,12 @@
   "card": {
     "not_found": {
       "title": "Entità non trovata",
-      "description": "Per far funzionare TrashCard, selezionare almeno un'entità di calendario."
+      "description": "Per far funzionare CalendarEventTracker, selezionare almeno un'entità di calendario."
     },
     "empty": {
       "description": "Al momento non è stato trovato alcun evento. Questo messaggio è disponibile solo durante la modifica."
     },
-    "trash": {
+    "event": {
       "today": "Oggi",
       "tomorrow": "Domani",
       "day": "<DAY>",

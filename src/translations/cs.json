@@ -83,7 +83,7 @@
                 "icon_size": "Velikost ikony",
                 "with_label": "Zobrazit popis"
             },
-            "trash": {
+            "event": {
                 "pattern": {
                     "title": "Upravit vzor",
                     "edit": "upravit",
@@ -114,12 +114,12 @@
     "card": {
         "not_found": {
             "title": "nejsou definovány žádné entity",
-            "description": "Vyberte prosím alespoň jednu entitu kalendáře, aby TrashCard fungovala."
+            "description": "Vyberte prosím alespoň jednu entitu kalendáře, aby CalendarEventTracker fungovala."
         },
         "empty": {
             "description": "Momentálně nebyly nalezeny žádné události. Tato zpráva je dostupná pouze během úprav."
         },
-        "trash": {
+        "event": {
             "today": "dnes",
             "tomorrow": "zítra",
             "day": "<DAY>",

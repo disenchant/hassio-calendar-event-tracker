@@ -3,19 +3,19 @@ import { assert } from 'superstruct';
 import { computeDarkMode } from '../../utils/computeDarkMode';
 import memoizeOne from 'memoize-one';
 import setupCustomlocalize from '../../localize';
-import { TRASH_CARD_EDITOR_NAME } from './const';
+import { CALENDAR_EVENT_TRACKER_EDITOR_NAME } from './const';
 import { css, html, LitElement, nothing } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { entityCardConfigStruct } from './trash-card-config';
+import { entityCardConfigStruct } from './calendar-event-tracker-config';
 import { getPatternOthersSchema, getPatternSchema, getSchema } from './formSchemas';
 import { fireEvent } from '../../utils/fireEvent';
 
-import './trash-card-pattern-editor';
+import './calendar-event-tracker-pattern-editor';
 
-import type { TrashCardConfig } from './trash-card-config';
+import type { CalendarEventTrackerConfig } from './calendar-event-tracker-config';
 import type { CSSResultGroup, PropertyValues } from 'lit';
 import type { HomeAssistant } from '../../utils/ha';
-import type { SubElementEditorConfig } from './trash-card-pattern-editor';
+import type { SubElementEditorConfig } from './calendar-event-tracker-pattern-editor';
 import type { HaFormSchema } from '../../utils/form/ha-form';
 
 interface DomEvent<T> extends Event {
@@ -27,7 +27,7 @@ declare global {
   interface HASSDomEvents {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     'config-changed': {
-      config: TrashCardConfig;
+      config: CalendarEventTrackerConfig;
     };
   }
 }
@@ -78,23 +78,23 @@ const configDefaults = {
   layout: 'default'
 };
 
-@customElement(TRASH_CARD_EDITOR_NAME)
-class TrashCardEditor extends LitElement {
+@customElement(CALENDAR_EVENT_TRACKER_EDITOR_NAME)
+class CalendarEventTrackerEditor extends LitElement {
   @property({ attribute: false }) public hass?: HomeAssistant;
 
-  @state() private config?: TrashCardConfig;
+  @state() private config?: CalendarEventTrackerConfig;
 
   @state() private subElementEditorConfig?: SubElementEditorConfig;
 
   @state() private readonly schema = memoizeOne(getSchema);
 
-  public setConfig (config: Partial<TrashCardConfig>): void {
+  public setConfig (config: Partial<CalendarEventTrackerConfig>): void {
     assert(config, entityCardConfigStruct);
 
     this.config = {
       ...configDefaults,
       ...config
-    } as TrashCardConfig;
+    } as CalendarEventTrackerConfig;
   }
 
   protected updated (changedProps: PropertyValues): void {
@@ -138,7 +138,7 @@ class TrashCardEditor extends LitElement {
         getPatternSchema(customLocalize, this.hass.localize);
 
       return html`
-        <div class="header" id="trashcard-pattern-editor">
+        <div class="header" id="calendar-event-tracker-pattern-editor">
           <div class="back-title">
               <ha-icon-button
                   .label=${this.hass.localize('ui.common.back')}
@@ -146,7 +146,7 @@ class TrashCardEditor extends LitElement {
               >
                 <ha-icon icon="mdi:arrow-left"></ha-icon>
               </ha-icon-button>
-              <span slot="title">${customLocalize(`editor.card.trash.pattern.title`)}</span>
+              <span slot="title">${customLocalize(`editor.card.event.pattern.title`)}</span>
           </div>
         </div>
           <ha-form
@@ -162,14 +162,14 @@ class TrashCardEditor extends LitElement {
     }
 
     return html`
-      <trash-card-pattern-editor
+      <calendar-event-tracker-pattern-editor
         .hass=${this.hass}
           .pattern=${this.config!.pattern}
           @delete-pattern-item=${this.deletePatternItem}  
           @create-pattern-item=${this.createPatternItem}  
           @edit-pattern-item=${this.editPatternItem}
           @settings-changed=${this.valueChanged}
-      ></trash-card-pattern-editor>`;
+      ></calendar-event-tracker-pattern-editor>`;
   }
 
   private goBack (): void {
@@ -229,7 +229,7 @@ class TrashCardEditor extends LitElement {
       length + 1;
 
     config.pattern.push({
-      label: `${customLocalize('editor.card.trash.pattern.new_custom_label')} ${newIdx}`,
+      label: `${customLocalize('editor.card.event.pattern.new_custom_label')} ${newIdx}`,
       icon: 'mdi:calendar',
       color: 'pink',
       type: 'custom'
@@ -315,19 +315,19 @@ class TrashCardEditor extends LitElement {
   public static get styles (): CSSResultGroup {
     return [
       css`
-        #trashcard-pattern-editor header {
+        #calendar-event-tracker-pattern-editor header {
           display: flex;
           justify-content: space-between;
           align-items: center;
         }
 
-        #trashcard-pattern-editor .back-title {
+        #calendar-event-tracker-pattern-editor .back-title {
             display: flex;
             align-items: center;
             font-size: 18px;
         }
 
-        #trashcard-pattern-editor ha-icon {
+        #calendar-event-tracker-pattern-editor ha-icon {
              display: flex;
              align-items: center;
              justify-content: center;
@@ -363,5 +363,5 @@ class TrashCardEditor extends LitElement {
 }
 
 export {
-  TrashCardEditor
+  CalendarEventTrackerEditor
 };

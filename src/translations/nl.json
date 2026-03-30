@@ -75,7 +75,7 @@
                 "icon_size": "Icoongrootte",
                 "with_label": "Toon label"
             },
-            "trash": {
+            "event": {
                 "pattern": {
                     "title": "Patroon bewerken",
                     "edit": "bewerken",
@@ -103,7 +103,7 @@
     },
     "card": {
         "not_found": "Entiteit niet gevonden",
-        "trash": {
+        "event": {
             "today": "vandaag",
             "tomorrow": "morgen",
             "day": "<DAY>",

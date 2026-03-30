@@ -1,4 +1,4 @@
-# 🗑️ TrashCard
+# 📅 Calendar Event Tracker
 
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
@@ -12,13 +12,13 @@
 <a href="https://www.buymeacoffee.com/idaho" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/white_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 ---
-<img width="510" alt="new-overview" src="https://github.com/disenchant/hassio-trash-card/assets/664101/8adeaf6a-f236-4972-805d-e173c3aa554b">
+<img width="510" alt="new-overview" src="https://github.com/disenchant/hassio-calendar-event-tracker/assets/664101/8adeaf6a-f236-4972-805d-e173c3aa554b">
 
 ---
 
 ### Never forget garbage collection day again!
 
-TrashCard is a custom Home Assistant card that displays the your current and upcoming trash collection schedule. 
+Calendar Event Tracker is a custom Home Assistant card that displays the your current and upcoming event schedule. 
 It uses events contained within the local calendar integration to display the information.
 
 **Features**
@@ -28,10 +28,10 @@ It uses events contained within the local calendar integration to display the in
 
 ## Pre-Requirements
 
-TrashCard requires:
+Calendar Event Tracker requires:
 - The [Home Assistant calendar integration](https://www.home-assistant.io/integrations/#calendar).
 
-Once you have both of these installed, you can install TashCard either:
+Once you have both of these installed, you can install Calendar Event Tracker either:
 - Through HACS.
 - Manually.
 
@@ -39,29 +39,29 @@ Once you have both of these installed, you can install TashCard either:
 
 ### HACS
 
-TrashCard is available in [HACS][hacs] (Home Assistant Community Store).
+Calendar Event Tracker is available in [HACS][hacs] (Home Assistant Community Store).
 
 #### As a Custom Repository
 
 1.  Install [HACS][hacs] if you haven't already.
 2.  Open HACS in Home Assistant.
 3.  Click on the three dots in the top right corner and select **Custom repositories**.
-4.  Add the URL to this repository (`https://github.com/disenchant/hassio-trash-card`) and select **Dashboard** (or **Lovelace**) as the category.
+4.  Add the URL to this repository (`https://github.com/disenchant/hassio-calendar-event-tracker`) and select **Dashboard** (or **Lovelace**) as the category.
 5.  Click **Add**.
 6.  Go to the **Frontend** section.
 7.  Click the "+" icon in the bottom right corner.
-8.  Search for "TrashCard" and install it.
+8.  Search for "Calendar Event Tracker" and install it.
 
 ### Manual
 
-1. Download the latest [latest release][release-url] of `trashcard.js` from the GitHub repository.
-2. Add `trashcard.js` into your config/www folder.
+1. Download the latest [latest release][release-url] of `calendar-event-tracker.js` from the GitHub repository.
+2. Add `calendar-event-tracker.js` into your config/www folder.
 
-You must then add a reference to `trashcard.js` in your Dashboard. There are two methods for doing this:
+You must then add a reference to `calendar-event-tracker.js` in your Dashboard. There are two methods for doing this:
 
 **Using the UI:** 
 
-- _Settings_ → _Dashboards_ → _More Options icon_ → _Resources_ → _Add Resource_ → Set _Url_ as `/local/trashcard.js` → Set _Resource type_ as `JavaScript Module`.
+- _Settings_ → _Dashboards_ → _More Options icon_ → _Resources_ → _Add Resource_ → Set _Url_ as `/local/calendar-event-tracker.js` → Set _Resource type_ as `JavaScript Module`.
   
 **Note:** If you do not see the Resources menu, you will need to enable _Advanced Mode_ in your _User Profile_
 
@@ -72,14 +72,14 @@ Add following code to the `lovelace` section in configuration.yaml:
 
       ```yaml
       resources:
-        - url: /local/trashcard.js
+        - url: /local/calendar-event-tracker.js
           type: module
       ```
 
 ## Usage
 
 ### Create events in your calendar
-In order for TrashCard to display information, your garbage collection schedule needs to be added in the local calendar.
+In order for Calendar Event Tracker to display information, your garbage collection schedule needs to be added in the local calendar.
 Creating a dedicated “Garbage collection” calendar for this purpose is a good way to keep things organised.
 
 ![image](https://github.com/user-attachments/assets/576d7446-c759-494b-996e-e60afd9210c7)
@@ -92,12 +92,12 @@ Creating a dedicated “Garbage collection” calendar for this purpose is a goo
 
 ## Configuration
 
-The TrashCard cards can be configured using the Dashboard UI editor.
+The Calendar Event Tracker cards can be configured using the Dashboard UI editor.
 
 ### Add a new card
 1.	In the Dashboard UI, select "Edit Dashboard" in top right corner.
 2.	Click the "+Add Card" button.
-3.	Find the Custom: TrashCard card in the list.
+3.	Find the Custom: Calendar Event Tracker card in the list.
 4.	Set the entity to the calendar that contains the collection events.
 5.	Configure the display settings of the card using the options.
 
@@ -123,7 +123,7 @@ All the options listed below are available in the lovelace editor, but configuri
 | `debug`            | boolean | `false`   | Option to enable debug mode to help fixing bugs ;) . |
 | `icon_size`            | integer | 40 | Size of the icons in px if you choose `card_style` as `icon` . |
 | `with_label`            | boolean | `true` | Option to display the label in the card or chip style. |
-| `pattern`          | array of [Pattern](#pattern)                               | Required    | Pattern to detect the kind of trash and how to display it.|
+| `pattern`          | array of [Pattern](#pattern)                               | Required    | Pattern to detect the kind of event and how to display it.|
 
 
 #### Pattern
@@ -140,7 +140,7 @@ All the options listed below are available in the lovelace editor, but configuri
 | `picture`           | string       | Optional    | Picture URL do display an image instead of an icon. |
 | `max_items`         | number       | 1           | Maximum number of upcoming events to show for this pattern. |
 
-#### Other type trash configuration
+#### Other type event configuration
 
 | Name                | Type                                                | Default     | Description                                                                         |
 | :------------------ | :-------------------------------------------------- | :---------- | :---------------------------------------------------------------------------------- |
@@ -153,7 +153,7 @@ All the options listed below are available in the lovelace editor, but configuri
 _The red and yellow bins are collected every fortnight on Thursdays. The red and green bins are collected every other fortnight on Thursdays._
 ![image](https://github.com/user-attachments/assets/6d72dce1-f2d4-4c7f-a4af-be42c95068b8)
 
-### Example TrashCard configuration that displays the events shown above
+### Example Calendar Event Tracker configuration that displays the events shown above
 ![image](https://github.com/user-attachments/assets/a40f01bb-3630-4a89-9eee-ac88bbd0d7e8)
 
 ### Output of the configuration above, using a custom picture instead of an icon
@@ -163,7 +163,7 @@ _The red and yellow bins are collected every fortnight on Thursdays. The red and
 ### Example YAML configuration
 
 ```yaml
-type: custom:trash-card
+type: custom:calendar-event-tracker
 entities:
   - calendar.mags_abfuhrtermine
 layout: vertical
@@ -213,30 +213,33 @@ pattern:
 ## Icons and Layouts
 
 ### Layout: icons
-<img width="482" alt="layout-icons" src="https://github.com/disenchant/hassio-trash-card/assets/664101/b1509694-7ece-49a4-8f84-6298731e315f">
+<img width="482" alt="layout-icons" src="https://github.com/disenchant/hassio-calendar-event-tracker/assets/664101/b1509694-7ece-49a4-8f84-6298731e315f">
 
 ### Layout: chips
-<img width="1043" alt="layout-chips" src="https://github.com/disenchant/hassio-trash-card/assets/664101/c420d073-c65d-41cc-8d47-c296c1c03fd4">
+<img width="1043" alt="layout-chips" src="https://github.com/disenchant/hassio-calendar-event-tracker/assets/664101/c420d073-c65d-41cc-8d47-c296c1c03fd4">
 
 ### Layout: cards
-![layout-cards](https://github.com/disenchant/hassio-trash-card/assets/664101/f3f3130c-172f-42dc-aaca-2bc0c9a3bc26)
+![layout-cards](https://github.com/disenchant/hassio-calendar-event-tracker/assets/664101/f3f3130c-172f-42dc-aaca-2bc0c9a3bc26)
 
 ### Using pictures instead of icons
 <img width="1032" alt="with-image" src="https://github.com/disenchant/hassio-trash-card/assets/664101/212537e0-65d3-4c2c-a25c-9431d7ff04b9">
 
+---
 
+## Acknowledgements
+This project is based on the original [hassio-trash-card](https://github.com/idaho/hassio-trash-card) created by Florian Triebel.
 
 <!-- Badges -->
 
 
-[commits-shield]: https://img.shields.io/github/commit-activity/y/disenchant/hassio-trash-card.svg?style=for-the-badge
-[commits]: https://github.com/disenchant/hassio-trash-card/commits/main
-[license-shield]: https://img.shields.io/github/license/disenchant/hassio-trash-card.svg?style=for-the-badge
+[commits-shield]: https://img.shields.io/github/commit-activity/y/disenchant/hassio-calendar-event-tracker.svg?style=for-the-badge
+[commits]: https://github.com/disenchant/hassio-calendar-event-tracker/commits/main
+[license-shield]: https://img.shields.io/github/license/disenchant/hassio-calendar-event-tracker.svg?style=for-the-badge
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2024.svg?style=for-the-badge
-[releases-shield]: https://img.shields.io/github/release/disenchant/hassio-trash-card.svg?style=for-the-badge
-[releases]: https://github.com/disenchant/hassio-trash-card/releases
-[downloads-badge]: https://img.shields.io/github/downloads/disenchant/hassio-trash-card/total?style=for-the-badge
-[build-badge]: https://img.shields.io/github/actions/workflow/status/disenchant/hassio-trash-card/build.yml?label=Build&style=for-the-badge
+[releases-shield]: https://img.shields.io/github/release/disenchant/hassio-calendar-event-tracker.svg?style=for-the-badge
+[releases]: https://github.com/disenchant/hassio-calendar-event-tracker/releases
+[downloads-badge]: https://img.shields.io/github/downloads/disenchant/hassio-calendar-event-tracker/total?style=for-the-badge
+[build-badge]: https://img.shields.io/github/actions/workflow/status/disenchant/hassio-calendar-event-tracker/build.yml?label=Build&style=for-the-badge
 
 
 
@@ -246,4 +249,4 @@ pattern:
 [home-assitant-theme-docs]: https://www.home-assistant.io/integrations/frontend/#defining-themes
 [hacs]: https://hacs.xyz
 [ui-lovelace-minimalist]: https://ui-lovelace-minimalist.github.io/UI/
-[release-url]: https://github.com/disenchant/hassio-trash-card/releases
+[release-url]: https://github.com/disenchant/hassio-calendar-event-tracker/releases

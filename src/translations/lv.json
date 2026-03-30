@@ -75,7 +75,7 @@
                 "icon_size": "Ikonas izmērs",
                 "with_label": "Rādīt etiķeti"
             },
-            "trash": {
+            "event": {
                 "pattern": {
                     "title": "Labot filtru",
                     "edit": "labot",
@@ -103,7 +103,7 @@
     },
     "card": {
         "not_found": "Vienība nav atrasta",
-        "trash": {
+        "event": {
             "today": "šodien",
             "tomorrow": "rīt",
             "day": "<DAY>",

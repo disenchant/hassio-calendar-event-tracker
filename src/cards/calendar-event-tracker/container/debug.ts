@@ -1,6 +1,6 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
-import { TRASH_CARD_NAME } from '../const';
+import { CALENDAR_EVENT_TRACKER_NAME } from '../const';
 import { defaultHaCardStyle } from '../../../utils/defaultHaCardStyle';
 
 import '../elements/title';
@@ -8,7 +8,7 @@ import '../items/logrow';
 
 import type { DebuggerData } from '../../../utils/debugger';
 
-@customElement(`${TRASH_CARD_NAME}-debug-container`)
+@customElement(`${CALENDAR_EVENT_TRACKER_NAME}-debug-container`)
 class Debug extends LitElement {
   @state() private readonly logs?: DebuggerData[];
 
@@ -24,7 +24,7 @@ class Debug extends LitElement {
 
   public render () {
     return html`<ha-card class="debug-container">
-        <trash-card-title>
+        <calendar-event-tracker-title>
           <span slot="title">DEBUG LOG</span>
           <ha-icon-button
             .label="copy debug log to clipboard"
@@ -34,13 +34,13 @@ class Debug extends LitElement {
           >
             <ha-icon icon="mdi:content-copy"></ha-icon>
           </ha-icon-button>
-        </trash-card-title>
+        </calendar-event-tracker-title>
 
         <div class="content">
           ${this.logs?.map(item => html`
-            <trash-card-logrow
+            <calendar-event-tracker-logrow
               .item=${item}
-            ></trash-card-logrow>
+            ></calendar-event-tracker-logrow>
             `)}
         </div>
     </ha-card>`;
