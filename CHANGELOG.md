@@ -1,3 +1,10 @@
+## [2.4.8](https://github.com/disenchant/hassio-trash-card/compare/2.4.7...2.4.8) (2026-03-30)
+
+### Features
+
+* Add support for HEX color values in patterns
+* Add max_items feature for patterns
+
 ## [1.2.2](https://github.com/idaho/hassio-trash-card/compare/1.2.1...1.2.2) (2023-12-15)
 
 
