@@ -117,6 +117,15 @@ interface ThemeVars {
 
 interface HomeAssistant {
   states: HassEntities;
+  connection: any;
+  callService: (
+    domain: string,
+    service: string,
+    serviceData?: Record<string, any>,
+    target?: Record<string, any>
+  ) => Promise<void>;
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  callWS: <T>(msg: any) => Promise<T>;
   callApi: <T>(
     method: 'GET' | 'POST' | 'PUT' | 'DELETE',
     path: string,

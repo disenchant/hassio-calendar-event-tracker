@@ -78,6 +78,19 @@ const getPatternSchema = (customLocalize: LocalizeFunc, localize: LocalizeFunc) 
         mode: 'box'
       }
     }
+  },
+  {
+    label: customLocalize(`editor.card.event.pattern.fields.task_interval`),
+    helper: customLocalize(`editor.card.event.pattern.fields.task_interval_description`),
+    name: 'task_interval',
+    selector: {
+      number: {
+        min: 0,
+        max: 365,
+        step: 1,
+        mode: 'box'
+      }
+    }
   }
 ];
 
@@ -92,6 +105,11 @@ const getSchema = (customLocalize: LocalizeFunc, currentValues: CalendarEventTra
         {
           name: 'filter_events',
           label: customLocalize(`editor.card.generic.filter_events`),
+          selector: { boolean: {}}
+        },
+        {
+          name: 'show_completed',
+          label: customLocalize(`editor.card.generic.show_completed`),
           selector: { boolean: {}}
         },
         {
@@ -341,7 +359,7 @@ const getSchema = (customLocalize: LocalizeFunc, currentValues: CalendarEventTra
       name: 'entities',
       selector: {
         entity: {
-          domain: 'calendar',
+          domain: [ 'calendar', 'todo' ],
           multiple: true
         }
       }

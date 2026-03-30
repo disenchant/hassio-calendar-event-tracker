@@ -48,6 +48,7 @@ interface CalendarEventTrackerConfig {
   items_per_row?: number;
   max_items?: number;
   filter_events?: boolean;
+  show_completed?: boolean;
   full_size?: boolean;
   drop_todayevents_from?: string;
   use_summary?: boolean;
@@ -81,6 +82,7 @@ const entityCardConfigStruct = assign(
     layout: optional(union([ literal(LAYOUTS[0]), literal(LAYOUTS[1]), literal(LAYOUTS[2]) ])),
     fill_container: optional(boolean()),
     filter_events: optional(boolean()),
+    show_completed: optional(boolean()),
     full_size: optional(boolean()),
     use_summary: optional(boolean()),
     hide_time_range: optional(boolean()),
@@ -108,7 +110,8 @@ const entityCardConfigStruct = assign(
         pattern_exact: optional(boolean()),
         picture: optional(string()),
         type: string(),
-        max_items: optional(integer())
+        max_items: optional(integer()),
+        task_interval: optional(integer())
       })
     ))
   })

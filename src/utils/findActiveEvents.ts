@@ -11,6 +11,8 @@ interface Config {
   filter_events: CalendarEventTrackerConfig['filter_events'];
   // eslint-disable-next-line @typescript-eslint/naming-convention
   only_all_day_events: CalendarEventTrackerConfig['only_all_day_events'];
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  show_completed: CalendarEventTrackerConfig['show_completed'];
 }
 
 interface Options {
@@ -42,8 +44,22 @@ const findActiveEvents = (items: CalendarEvent[], { config, now, dropAfter, filt
 
   const activeItems = items.
     filter((item): boolean => {
+      const isTask = item.content.entity?.startsWith('todo.');
+
       if (location && !item.content.location?.toLowerCase().includes(location.toLowerCase())) {
         return false;
+      }
+
+      if (isTask) {
+        if (!config.show_completed && item.content.status === 'completed') {
+          return false;
+        }
+
+        if (item.date.start > dateMaxStart) {
+          return false;
+        }
+
+        return true;
       }
 
       if (item.date.start > dateMaxStart) {
@@ -67,10 +83,12 @@ const findActiveEvents = (items: CalendarEvent[], { config, now, dropAfter, filt
     sort((first, second): number => first.date.start.getTime() - second.date.start.getTime());
 
   return activeItems.
-    filter((item): boolean =>
-      isMatchingAnyPatterns(item, config) &&
-    (isNotPastWholeDayEvent(item, now, dropAfter) ||
-      !item.isWholeDayEvent));
+    filter((item): boolean => {
+      const isTask = item.content.entity?.startsWith('todo.');
+
+      return isMatchingAnyPatterns(item, config) &&
+        (isTask || isNotPastWholeDayEvent(item, now, dropAfter) || !item.isWholeDayEvent);
+    });
 };
 
 export {

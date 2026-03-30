@@ -8,6 +8,7 @@ interface CalendarItem extends CalendarEvent {
   picture?: string;
   idx?: number;
   max_items?: number;
+  task_interval?: number;
 }
 
 export type {

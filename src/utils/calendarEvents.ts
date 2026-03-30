@@ -16,6 +16,8 @@ interface RawCalendarEvent {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   recurrence_id: string | null;
   rrule: string | null;
+  entity?: string;
+  status?: string;
 }
 
 interface CalendarEvent {

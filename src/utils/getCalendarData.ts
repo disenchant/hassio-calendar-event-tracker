@@ -10,15 +10,55 @@ import type { CalendarEventTrackerConfig } from '../cards/calendar-event-tracker
 
 const fetchData = async (
   hass: HomeAssistant,
-  calendar: string,
+  entity: string,
   { start, end }: { start: string; end: string }
 ) => {
-  const uri = `calendars/${calendar}?start=${start}&end=${end}`;
+  if (entity.startsWith('todo.')) {
+    try {
+      const response = await hass.callWS<{ items: any[] }>({
+        type: 'todo/item/list',
+        entity_id: entity
+      });
+
+      if (response.items) {
+        return response.items.map(item => {
+          let startDate = new Date();
+          let endDate = new Date();
+
+          if (item.due) {
+            startDate = new Date(item.due);
+            endDate = new Date(item.due);
+          }
+
+          return {
+            summary: item.summary,
+            uid: item.uid,
+            status: item.status,
+            entity,
+            start: {
+              dateTime: startDate.toISOString(),
+              date: item.due ? startDate.toISOString().split('T')[0] : undefined
+            },
+            end: {
+              dateTime: endDate.toISOString(),
+              date: item.due ? endDate.toISOString().split('T')[0] : undefined
+            }
+          } as unknown as RawCalendarEvent;
+        });
+      }
+    } catch {
+      return [];
+    }
+
+    return [];
+  }
+
+  const uri = `calendars/${entity}?start=${start}&end=${end}`;
 
   return await hass.callApi<RawCalendarEvent[]>('GET', uri).
     then(data => data.map(item => ({
       ...item,
-      entity: calendar
+      entity
     })));
 };
 
@@ -60,7 +100,9 @@ const getCalendarData = async (
       // eslint-disable-next-line @typescript-eslint/naming-convention
       filter_events: config.filter_events,
       // eslint-disable-next-line @typescript-eslint/naming-convention
-      only_all_day_events: config.only_all_day_events
+      only_all_day_events: config.only_all_day_events,
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      show_completed: config.show_completed
     },
     dropAfter,
     now,
