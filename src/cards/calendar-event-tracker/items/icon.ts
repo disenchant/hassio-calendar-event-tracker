@@ -40,8 +40,14 @@ class IconCard extends BaseItemElement<{ nextEvent: boolean }> {
 
     this.withBackground = true;
 
+    const isTask = item.content?.entity?.startsWith('todo.');
+    const cardStyle = {
+      ...style,
+      cursor: isTask ? 'pointer' : 'default'
+    };
+
     return html`
-      <ha-card style=${styleMap(style)} class=${classMap(cssClasses)}>
+      <ha-card style=${styleMap(cardStyle)} class=${classMap(cssClasses)} @click=${this.handleTaskClick}>
           <div class="container">
           <div class="content">
           <div class="icon-container">

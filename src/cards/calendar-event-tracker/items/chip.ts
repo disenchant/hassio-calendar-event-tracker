@@ -43,16 +43,23 @@ class ItemChip extends BaseItemElement {
       show_name: true
     };
 
+    const isTask = item.content?.entity?.startsWith('todo.');
+    const chipStyle = {
+      ...style,
+      cursor: isTask ? 'pointer' : 'default'
+    };
+
     return html`
       <ha-badge
         .type="badge"
         .hass=${this.hass}
         .config=${badgeConfig}
         .imageStyle=${'square'}
-        style=${styleMap(style)}
+        style=${styleMap(chipStyle)}
         class=${classMap(cssClasses)}
         .iconOnly=${!with_label && !content}
         .label=${with_label ? item.label : nothing}
+        @click=${this.handleTaskClick}
       >
         ${pictureUrl ?
     html`<img slot="icon" src=${pictureUrl} aria-hidden />` :

@@ -2,6 +2,7 @@
 import { LitElement, html, nothing } from 'lit';
 import { state } from 'lit/decorators.js';
 import { getPicture } from '../../../utils/getPicture';
+import { fireEvent } from '../../../utils/fireEvent';
 
 import type { CalendarEventTrackerConfig } from '../calendar-event-tracker-config';
 import type { CalendarItem } from '../../../utils/calendarItem';
@@ -20,10 +21,13 @@ class BaseItemElement<T = {}> extends LitElement {
     return getPicture(this.item!.picture, this.hass!);
   }
 
-  protected async handleTaskClick() {
+  protected async handleTaskClick(e: Event) {
     if (!this.hass || !this.item || !this.item.content.entity?.startsWith('todo.')) {
       return;
     }
+
+    e.stopPropagation();
+    e.preventDefault();
 
     const { entity, uid, summary, status } = this.item.content;
     const task_interval = this.item.task_interval;
@@ -47,6 +51,8 @@ class BaseItemElement<T = {}> extends LitElement {
         due_date: dueString
       }, { entity_id: entity });
     }
+
+    fireEvent(this, 'calendar-event-tracker-update');
   }
 
   // eslint-disable-next-line class-methods-use-this

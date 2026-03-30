@@ -24,6 +24,8 @@ declare global {
   interface HASSDomEvents {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     'card-visibility-changed': { value: boolean };
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    'calendar-event-tracker-update': undefined;
   }
 }
 
@@ -49,6 +51,11 @@ const configDefaults = {
 export class CalendarEventTracker extends LitElement {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   @state() private _hass?: HomeAssistant;
+
+  public connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener('calendar-event-tracker-update', () => this.fetchCurrentEventData());
+  }
 
   public static async getConfigElement () {
     await import('./calendar-event-tracker-editor');

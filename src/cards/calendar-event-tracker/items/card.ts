@@ -130,6 +130,7 @@ class ItemCard extends BaseItemElement {
           position: relative;
           padding: 6px;
           margin: -6px;
+          pointer-events: auto;
         }
 
         hui-image {
