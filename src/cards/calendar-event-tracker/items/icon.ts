@@ -27,9 +27,10 @@ class IconCard extends BaseItemElement<{ nextEvent: boolean }> {
     };
 
     const daysTillToday = Math.abs(daysTill(new Date(), item.date.start));
+    const { highlight_today } = this.config;
 
     const cssClasses = {
-      today: daysTillToday === 0,
+      today: daysTillToday === 0 && (highlight_today ?? true),
       tomorrow: daysTillToday === 1,
       another: daysTillToday > 1,
       nextEvent: this.item.nextEvent,

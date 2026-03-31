@@ -49,6 +49,7 @@ interface CalendarEventTrackerConfig {
   max_items?: number;
   filter_events?: boolean;
   show_completed?: boolean;
+  highlight_today?: boolean;
   full_size?: boolean;
   drop_todayevents_from?: string;
   use_summary?: boolean;
@@ -71,7 +72,7 @@ interface CalendarEventTrackerConfig {
   only_all_day_events?: boolean;
 }
 
- type CardStyleConfig = Pick<CalendarEventTrackerConfig, 'hide_time_range' | 'day_style' | 'day_style_format' | 'layout' | 'color_mode' | 'icon_size' | 'with_label'>;
+ type CardStyleConfig = Pick<CalendarEventTrackerConfig, 'highlight_today' | 'hide_time_range' | 'day_style' | 'day_style_format' | 'layout' | 'color_mode' | 'icon_size' | 'with_label'>;
 
 const entityCardConfigStruct = assign(
   defaultConfigStruct,
@@ -83,6 +84,7 @@ const entityCardConfigStruct = assign(
     fill_container: optional(boolean()),
     filter_events: optional(boolean()),
     show_completed: optional(boolean()),
+    highlight_today: optional(boolean()),
     full_size: optional(boolean()),
     use_summary: optional(boolean()),
     hide_time_range: optional(boolean()),

@@ -18,7 +18,7 @@ class ItemChip extends BaseItemElement {
     // eslint-disable-next-line prefer-destructuring
     const item = this.item;
 
-    const { color_mode, hide_time_range, day_style, day_style_format, with_label } = this.config;
+    const { color_mode, hide_time_range, day_style, day_style_format, with_label, highlight_today } = this.config;
 
     const style = {
       ...getColoredStyle(color_mode, item, this.parentElement, this.hass.themes.darkMode)
@@ -29,7 +29,7 @@ class ItemChip extends BaseItemElement {
     const daysTillToday = Math.abs(daysTill(new Date(), item.date.start));
 
     const cssClasses = {
-      today: daysTillToday === 0,
+      today: daysTillToday === 0 && (highlight_today ?? true),
       tomorrow: daysTillToday === 1,
       another: daysTillToday > 1
     };

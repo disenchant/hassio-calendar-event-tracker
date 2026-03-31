@@ -77,6 +77,7 @@
                 "max_items": "Nombre max d'éléments affichés",
                 "filter_events": "Filter events by patterns",
                 "show_completed": "Show completed tasks",
+                "highlight_today": "Mettre en évidence les événements du jour",
                 "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Carte sans marge",
                 "use_summary": "Résumé de l'événement au lieu de l'étiquette",

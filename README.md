@@ -116,6 +116,8 @@ All the options listed below are available in the lovelace editor, but configuri
 | `event_grouping`         | boolean                                             | `true`     | Only display the next event per pattern, otherwise all events during the selected time will be displayed.  |
 | `next_days`         | number                                              | 2           | How many times the card will look into the future to find the next event. |
 | `max_items`         | number                                              | 5           | Global maximum number of events shown in the card. |
+| `show_completed`    | boolean                                             | `false`     | Show completed tasks in the card. |
+| `highlight_today`   | boolean                                             | `true`      | Highlight today's events with a solid border. |
 | `day_style`            | `default` or `counter` | `default`   | Option for how the date of an event should be displayed. `default` shows the date in date format and `counter` shows the number of days remaining before the event.       |
 | `card_style`            | `card`, `chip` or `icon` | `card`   | Switch between the events style `Standard card`, `Chip card` or a new `Icon` predefined layout. |
 | `alignment_style`            | `left`, `center`, `right` or `space` | `left`   | Switch between alignments on `Chip card` card_style. |

@@ -19,7 +19,7 @@ class ItemCard extends BaseItemElement {
     // eslint-disable-next-line prefer-destructuring
     const item = this.item;
 
-    const { color_mode, hide_time_range, day_style, layout, with_label, day_style_format } = this.config;
+    const { color_mode, hide_time_range, day_style, layout, with_label, day_style_format, highlight_today } = this.config;
 
     const { label, date } = item;
 
@@ -32,7 +32,7 @@ class ItemCard extends BaseItemElement {
     const daysTillToday = Math.abs(daysTill(new Date(), date.start));
 
     const cssClasses = {
-      today: daysTillToday === 0,
+      today: daysTillToday === 0 && (highlight_today ?? true),
       tomorrow: daysTillToday === 1,
       another: daysTillToday > 1
     };
