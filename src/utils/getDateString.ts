@@ -71,9 +71,17 @@ const getDateString = (
 
       return `${customLocalize(`card.event.daysleft${daysLeft > 1 ? '_more' : ''}${startTime && !excludeTime ? '_from_till' : ''}`).replace('<DAYS>', `${daysLeft}`).replace('<START>', startTime ?? '').replace('<END>', endTime ?? '')}`;
     }
+    
+    const isTask = item.content?.entity?.startsWith('todo.');
+    
+    if (isTask) {
+      const daysLeft = daysToStart;
+      return `${customLocalize(`card.event.daysleftdue${Math.abs(daysLeft) > 1 ? '_more' : ''}${startTime && !excludeTime ? '_till' : ''}`).replace('<DAYS>', `${daysLeft}`).replace('<END>', endTime ?? '')}`;
+    }
+
     const daysToEnd = daysTill(new Date(), item.date.end);
 
-    return `${customLocalize(`card.event.daysleftend${daysToEnd > 1 ? '_more' : ''}${startTime && !excludeTime ? '_till' : ''}`).replace('<DAYS>', `${daysToEnd}`).replace('<END>', endTime ?? '')}`;
+    return `${customLocalize(`card.event.daysleftend${Math.abs(daysToEnd) > 1 ? '_more' : ''}${startTime && !excludeTime ? '_till' : ''}`).replace('<DAYS>', `${daysToEnd}`).replace('<END>', endTime ?? '')}`;
   }
 
   if (dayStyle === 'weekday') {

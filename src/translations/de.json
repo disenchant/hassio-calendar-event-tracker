@@ -121,6 +121,10 @@
             "daysleftend": "endet in <DAYS> Tag",
             "daysleftend_more": "endet in <DAYS> Tagen",
             "daysleftend_till": "endet in <DAYS> Tag\num <END> Uhr",
-            "daysleftend_more_till": "endet in <DAYS> Tagen\num <END> Uhr"        }
+            "daysleftend_more_till": "endet in <DAYS> Tagen\num <END> Uhr",
+            "daysleftdue": "fällig in <DAYS> Tag",
+            "daysleftdue_more": "fällig in <DAYS> Tagen",
+            "daysleftdue_till": "due in <DAYS> day\nat <END>",
+            "daysleftdue_more_till": "due in <DAYS> days\nat <END>"        }
     }
 }

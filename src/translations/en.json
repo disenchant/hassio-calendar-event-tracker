@@ -141,7 +141,11 @@
             "daysleftend": "ends in <DAYS> day",
             "daysleftend_more": "ends in <DAYS> days",
             "daysleftend_till": "ends in <DAYS> day\nat <END>",
-            "daysleftend_more_till": "ends in <DAYS> days\nat <END>"
+            "daysleftend_more_till": "ends in <DAYS> days\nat <END>",
+            "daysleftdue": "due in <DAYS> day",
+            "daysleftdue_more": "due in <DAYS> days",
+            "daysleftdue_till": "due in <DAYS> day\nat <END>",
+            "daysleftdue_more_till": "due in <DAYS> days\nat <END>"
         }
     }
 }
