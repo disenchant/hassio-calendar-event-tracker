@@ -62,7 +62,7 @@
         "event_grouping": "Exibir apenas o próximo evento por padrão",
         "fill_container": "Encha o contêiner",
         "hide_time_range": "Ocultar tempo",
-        "drop_todayevents_from": "A partir de que horas ocultar o evento de um dia inteiro"
+        "drop_todayevents_from": "From what time to hide today's events"
       }
     },
     "form": {

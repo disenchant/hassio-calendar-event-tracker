@@ -110,7 +110,7 @@ All the options listed below are available in the lovelace editor, but configuri
 | `fill_container`    | boolean                                             | `false`     | Fill container or not. Useful when card is in a grid, vertical or horizontal layout. |
 | `filter_events`     | boolean                                             | `false`     | Filter and display events from the calendar by names (if at least one is defined). |
 | `full_size`         | boolean                                             | `false`     | Show the card without the default card margins. |
-| `drop_todayevents_from`         | time                                             | `10:00:00`     | From what time to hide all-day event (Format `hh:mm:ss`). |
+| `drop_todayevents_from`         | time                                             | `10:00:00`     | From what time to hide today's events (Format `hh:mm:ss`). |
 | `use_summary`         | boolean                                             | `false`     | Shows the event summary instead of matched label. |
 | `hide_time_range`         | boolean                                             | `false`     | Option to hide the time on events that aren't full day events. |
 | `event_grouping`         | boolean                                             | `true`     | Only display the next event per pattern, otherwise all events during the selected time will be displayed.  |

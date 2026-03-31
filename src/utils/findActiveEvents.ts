@@ -75,6 +75,10 @@ const findActiveEvents = (items: CalendarEvent[], { config, now, dropAfter, filt
       }
 
       if (item.date.end < now) {
+        if (getDayFromDate(item.date.end) === getDayFromDate(now) && !dropAfter) {
+          return true;
+        }
+
         return false;
       }
 

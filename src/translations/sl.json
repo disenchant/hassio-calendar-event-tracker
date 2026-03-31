@@ -69,7 +69,7 @@
                 "max_items": "Največje število prikazanih elementov",
                 "filter_events": "Filter events by patterns",
                 "show_completed": "Show completed tasks",
-                "drop_todayevents_from": "Od katere ure dalje naj se skrije celodnevni dogodek",
+                "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Kartica brez roba strani",
                 "use_summary": "Povzetek dogodka namesto oznake",
                 "hide_time_range": "Skrij čas",

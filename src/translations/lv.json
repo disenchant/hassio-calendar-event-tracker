@@ -69,7 +69,7 @@
                 "max_items": "Maks. parādīto vienumu skaits",
                 "filter_events": "Filter events by patterns",
                 "show_completed": "Show completed tasks",
-                "drop_todayevents_from": "No kāda laika slēpt visas dienas notikumu",
+                "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Kartiņa bez robežas",
                 "use_summary": "Notikuma kopsavilkums, nevis etiķete",
                 "hide_time_range": "Paslēpt laiku",

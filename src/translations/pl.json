@@ -69,7 +69,7 @@
                 "max_items": "Maks. liczba wyświetlanych elementów",
                 "filter_events": "Filter events by patterns",
                 "show_completed": "Show completed tasks",
-                "drop_todayevents_from": "Od której godziny ukryć wydarzenie całodniowe",
+                "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Karta bez marginesu",
                 "use_summary": "Podsumowanie zamiast oznaczenia",
                 "hide_time_range": "Ukryj czas",

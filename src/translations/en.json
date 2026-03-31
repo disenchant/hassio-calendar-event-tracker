@@ -77,7 +77,7 @@
                 "max_items": "Max items shown",
                 "filter_events": "Filter events by patterns",
                 "show_completed": "Show completed tasks",
-                "drop_todayevents_from": "From what time to hide all-day event",
+                "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Card without margin",
                 "use_summary": "Event summary instead of label",
                 "hide_time_range": "Hide time",
