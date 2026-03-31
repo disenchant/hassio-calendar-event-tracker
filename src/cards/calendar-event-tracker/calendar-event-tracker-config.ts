@@ -49,6 +49,7 @@ interface CalendarEventTrackerConfig {
   max_items?: number;
   filter_events?: boolean;
   show_completed?: boolean;
+  show_empty?: boolean;
   highlight_today?: boolean;
   highlight_overdue?: boolean;
   full_size?: boolean;
@@ -85,6 +86,7 @@ const entityCardConfigStruct = assign(
     fill_container: optional(boolean()),
     filter_events: optional(boolean()),
     show_completed: optional(boolean()),
+    show_empty: optional(boolean()),
     highlight_today: optional(boolean()),
     highlight_overdue: optional(boolean()),
     full_size: optional(boolean()),

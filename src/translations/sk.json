@@ -71,6 +71,7 @@
                 "show_completed": "Show completed tasks",
                 "highlight_today": "Zvýrazniť dnešné udalosti",
                 "highlight_overdue": "Highlight overdue tasks",
+                "show_empty": "Show empty state",
                 "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Karta bez marže",
                 "use_summary": "Zhrnutie udalosti namiesto označenia",
@@ -87,10 +88,10 @@
                     "create": "Vytvoriť nový vzor",
                     "new_custom_label": "Nový vzor",
                     "type": {
-                        "organic": "Organický",
-                        "paper": "Papiera",
-                        "recycle": "Recyklačný",
-                        "waste": "Odpadu",
+                        "type1": "Type 1",
+                        "type2": "Type 2",
+                        "type3": "Type 3",
+                        "type4": "Type 4",
                         "others": "Iné"
                     },
                     "fields": {
@@ -106,7 +107,14 @@
         }
     },
     "card": {
-        "not_found": "Entita sa nenašla",
+        "not_found": {
+            "title": "Entita sa nenašla",
+            "description": "Please select at least one calendar entity."
+        },
+        "empty": {
+            "title": "All caught up!",
+            "description": "Currently no events found."
+        },
         "event": {
             "today": "dnes",
             "tomorrow": "zajtra",

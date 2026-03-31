@@ -113,6 +113,11 @@ const getSchema = (customLocalize: LocalizeFunc, currentValues: CalendarEventTra
           selector: { boolean: {}}
         },
         {
+          name: 'show_empty',
+          label: customLocalize(`editor.card.generic.show_empty`),
+          selector: { boolean: {}}
+        },
+        {
           name: 'highlight_today',
           label: customLocalize(`editor.card.generic.highlight_today`),
           selector: { boolean: {}}

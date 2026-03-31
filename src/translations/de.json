@@ -71,6 +71,7 @@
                 "show_completed": "Show completed tasks",
                 "highlight_today": "Heutige Ereignisse hervorheben",
                 "highlight_overdue": "Highlight overdue tasks",
+                "show_empty": "Show empty state",
                 "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Karte ohne Seitenrand",
                 "use_summary": "Ereignisbezeichnung anstelle des Lables verwenden",
@@ -87,10 +88,10 @@
                     "create": "Neue Vorlage erstellen",
                     "new_custom_label": "Neue Vorlage",
                     "type": {
-                        "organic": "Bio",
-                        "paper": "Papier",
-                        "recycle": "Verpackung",
-                        "waste": "Restmüll",
+                        "type1": "Type 1",
+                        "type2": "Type 2",
+                        "type3": "Type 3",
+                        "type4": "Type 4",
                         "others": "Sonstiges"
                     },
                     "fields": {
@@ -106,7 +107,14 @@
         }
     },
     "card": {
-        "not_found": "Entität nicht gefunden",
+        "not_found": {
+            "title": "Entität nicht gefunden",
+            "description": "Please select at least one calendar entity."
+        },
+        "empty": {
+            "title": "All caught up!",
+            "description": "Currently no events found."
+        },
         "event": {
             "today": "Heute",
             "tomorrow": "Morgen",

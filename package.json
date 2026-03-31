@@ -3,10 +3,8 @@
   "version": "3.0.0",
   "description": "CalendarEventTracker - indicates what type of event is happening next based on your calendar entries 📅",
   "keywords": [
-    "paper",
     "card",
     "event",
-    "waste",
     "home-assistant",
     "hacs",
     "lovelace",

@@ -71,6 +71,7 @@
                 "show_completed": "Show completed tasks",
                 "highlight_today": "Fremhæv dagens begivenheder",
                 "highlight_overdue": "Highlight overdue tasks",
+                "show_empty": "Show empty state",
                 "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Kort uden margen",
                 "use_summary": "Begivenhedssammendrag i stedet for etiket",
@@ -87,10 +88,10 @@
                     "create": "Opret nyt mønster",
                     "new_custom_label": "Nyt mønster",
                     "type": {
-                        "organic": "Organisk",
-                        "paper": "Papir",
-                        "recycle": "Genbrug",
-                        "waste": "Affald",
+                        "type1": "Type 1",
+                        "type2": "Type 2",
+                        "type3": "Type 3",
+                        "type4": "Type 4",
                         "others": "Andre"
                     },
                     "fields": {
@@ -106,7 +107,14 @@
         }
     },
     "card": {
-        "not_found": "Entitet ikke fundet",
+        "not_found": {
+            "title": "Entitet ikke fundet",
+            "description": "Please select at least one calendar entity."
+        },
+        "empty": {
+            "title": "All caught up!",
+            "description": "Currently no events found."
+        },
         "event": {
             "today": "i dag",
             "tomorrow": "i morgen",

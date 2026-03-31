@@ -71,6 +71,7 @@
                 "show_completed": "Show completed tasks",
                 "highlight_today": "Markeer activiteiten van vandaag",
                 "highlight_overdue": "Highlight overdue tasks",
+                "show_empty": "Show empty state",
                 "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Kaart zonder marge",
                 "use_summary": "Gebruik de samenvatting van de kalenderactiviteit i.p.v. de label",
@@ -87,10 +88,10 @@
                     "create": "Nieuw patroon aanmaken",
                     "new_custom_label": "Nieuw patroon",
                     "type": {
-                        "organic": "GFT",
-                        "paper": "Papier",
-                        "recycle": "PMD",
-                        "waste": "Restafval",
+                        "type1": "Type 1",
+                        "type2": "Type 2",
+                        "type3": "Type 3",
+                        "type4": "Type 4",
                         "others": "Overige"
                     },
                     "fields": {
@@ -106,7 +107,14 @@
         }
     },
     "card": {
-        "not_found": "Entiteit niet gevonden",
+        "not_found": {
+            "title": "Entiteit niet gevonden",
+            "description": "Please select at least one calendar entity."
+        },
+        "empty": {
+            "title": "All caught up!",
+            "description": "Currently no events found."
+        },
         "event": {
             "today": "vandaag",
             "tomorrow": "morgen",

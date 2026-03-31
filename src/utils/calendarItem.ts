@@ -4,7 +4,7 @@ interface CalendarItem extends CalendarEvent {
   label: string;
   color?: string;
   icon?: string;
-  type: `custom-${number}` | 'organic' | 'paper' | 'recycle' | 'waste' | 'others';
+  type: `custom-${number}` | 'type1' | 'type2' | 'type3' | 'type4' | 'others';
   picture?: string;
   idx?: number;
   max_items?: number;

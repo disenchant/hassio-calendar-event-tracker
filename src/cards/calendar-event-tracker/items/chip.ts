@@ -78,6 +78,14 @@ class ItemChip extends BaseItemElement {
   public static get styles () {
     return [
       css`
+        .spin {
+          animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+          100% {
+            transform: rotate(360deg);
+          }
+        }
         img[slot="icon"] {
           object-fit: contain;
         }

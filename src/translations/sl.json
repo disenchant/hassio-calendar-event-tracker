@@ -71,6 +71,7 @@
                 "show_completed": "Show completed tasks",
                 "highlight_today": "Poudari današnje dogodke",
                 "highlight_overdue": "Highlight overdue tasks",
+                "show_empty": "Show empty state",
                 "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Kartica brez roba strani",
                 "use_summary": "Povzetek dogodka namesto oznake",
@@ -87,10 +88,10 @@
                     "create": "Ustvari nov vzorec",
                     "new_custom_label": "Nov vzorec",
                     "type": {
-                        "organic": "Bio odpadki",
-                        "paper": "Papir",
-                        "recycle": "Mešana embalaža",
-                        "waste": "Mešani odpadki",
+                        "type1": "Type 1",
+                        "type2": "Type 2",
+                        "type3": "Type 3",
+                        "type4": "Type 4",
                         "others": "Ostalo"
                     },
                     "fields": {
@@ -106,7 +107,14 @@
         }
     },
     "card": {
-        "not_found": "Ne najdem entitete",
+        "not_found": {
+            "title": "Ne najdem entitete",
+            "description": "Please select at least one calendar entity."
+        },
+        "empty": {
+            "title": "All caught up!",
+            "description": "Currently no events found."
+        },
         "event": {
             "today": "danes",
             "tomorrow": "jutri",

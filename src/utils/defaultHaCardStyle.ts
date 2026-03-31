@@ -67,6 +67,14 @@ const defaultHaCardStyle = css`
         ${themeColorCss}
         ${themeVariables}
     }
+    .spin {
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
     ha-card {
         box-sizing: border-box;
         display: flex;

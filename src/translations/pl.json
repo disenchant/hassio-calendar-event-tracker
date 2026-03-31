@@ -71,6 +71,7 @@
                 "show_completed": "Show completed tasks",
                 "highlight_today": "Wyróżnij dzisiejsze wydarzenia",
                 "highlight_overdue": "Highlight overdue tasks",
+                "show_empty": "Show empty state",
                 "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Karta bez marginesu",
                 "use_summary": "Podsumowanie zamiast oznaczenia",
@@ -87,10 +88,10 @@
                     "create": "Utwórz nowy wzorzec",
                     "new_custom_label": "Nowy wzorzec",
                     "type": {
-                        "organic": "BIO",
-                        "paper": "Papier",
-                        "recycle": "Tworzywa",
-                        "waste": "Zmieszane",
+                        "type1": "Type 1",
+                        "type2": "Type 2",
+                        "type3": "Type 3",
+                        "type4": "Type 4",
                         "others": "Pozostałe"
                     },
                     "fields": {
@@ -106,7 +107,14 @@
         }
     },
     "card": {
-        "not_found": "Encji nie znaleziono",
+        "not_found": {
+            "title": "Encji nie znaleziono",
+            "description": "Please select at least one calendar entity."
+        },
+        "empty": {
+            "title": "All caught up!",
+            "description": "Currently no events found."
+        },
         "event": {
             "today": "dziś",
             "tomorrow": "jutro",

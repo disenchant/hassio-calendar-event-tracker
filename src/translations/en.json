@@ -79,6 +79,7 @@
                 "show_completed": "Show completed tasks",
                 "highlight_today": "Highlight today's events",
                 "highlight_overdue": "Highlight overdue tasks",
+                "show_empty": "Show empty state",
                 "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Card without margin",
                 "use_summary": "Event summary instead of label",
@@ -95,10 +96,10 @@
                     "create": "Create new pattern",
                     "new_custom_label": "New pattern",
                     "type": {
-                        "organic": "Organic",
-                        "paper": "Paper",
-                        "recycle": "Recycle",
-                        "waste": "Waste",
+                        "type1": "Type 1",
+                        "type2": "Type 2",
+                        "type3": "Type 3",
+                        "type4": "Type 4",
                         "others": "Others"
                     },
                     "fields": {

@@ -41,28 +41,28 @@ const configDefaults = {
   next_days: 2,
   pattern: [
     {
-      icon: 'mdi:flower',
+      icon: 'mdi:calendar-star',
       color: 'lime',
-      type: 'organic'
+      type: 'type1'
     },
     {
-      icon: 'mdi:newspaper',
+      icon: 'mdi:calendar-check',
       color: 'blue',
-      type: 'paper'
+      type: 'type2'
     },
     {
-      icon: 'mdi:recycle-variant',
+      icon: 'mdi:calendar-sync',
       color: 'amber',
-      type: 'recycle'
+      type: 'type3'
     },
     {
-      icon: 'mdi:trash-can-outline',
+      icon: 'mdi:calendar-clock',
       color: 'grey',
-      type: 'waste'
+      type: 'type4'
     },
     {
-      icon: 'mdi:dump-truck',
-      color: 'purple',
+      icon: 'mdi:calendar-blank',
+      color: 'deep-purple',
       type: 'others'
     }
   ],

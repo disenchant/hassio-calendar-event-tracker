@@ -191,7 +191,9 @@ export class CalendarEventTracker extends LitElement {
   protected update (changedProps: PropertyValues) {
     super.update(changedProps);
 
-    if (!this.preview && hasEntities(this.config!.entities) && (!this.currentItems || this.currentItems.length === 0)) {
+    const noItems = !this.currentItems || this.currentItems.length === 0;
+
+    if (!this.preview && hasEntities(this.config!.entities) && noItems && !this.config!.show_empty) {
       this.style.display = 'none';
       this.toggleAttribute('hidden', true);
       fireEvent(this, 'card-visibility-changed', { value: false });
@@ -207,6 +209,13 @@ export class CalendarEventTracker extends LitElement {
   protected render () {
     if (!this.config || !this.hass) {
       return nothing;
+    }
+
+    if (!hasEntities(this.config.entities) || (!this.currentItems || this.currentItems.length === 0)) {
+      return html`<calendar-event-tracker-item-empty
+        .config=${this.config} 
+        .hass=${this.hass}
+      ></calendar-event-tracker-item-empty>`;
     }
 
     const cardStyle = this.config.card_style;

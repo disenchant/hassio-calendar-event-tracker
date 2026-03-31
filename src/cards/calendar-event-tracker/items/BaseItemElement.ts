@@ -15,6 +15,8 @@ class BaseItemElement<T = {}> extends LitElement {
 
   @state() protected readonly config?: CalendarEventTrackerConfig;
 
+  @state() protected isUpdating = false;
+
   protected withBackground = false;
 
   protected getPictureUrl () {
@@ -32,31 +34,40 @@ class BaseItemElement<T = {}> extends LitElement {
     const { entity, uid, summary, status } = this.item.content;
     const task_interval = this.item.task_interval;
 
-    if (status === 'completed') {
+    if (status === 'completed' || this.isUpdating) {
       return;
     }
 
-    await this.hass.callService('todo', 'update_item', {
-      item: uid,
-      status: 'completed'
-    }, { entity_id: entity });
+    this.isUpdating = true;
 
-    if (task_interval && task_interval > 0) {
-      const newDueDate = new Date();
-      newDueDate.setDate(newDueDate.getDate() + task_interval);
-      const dueString = newDueDate.toISOString().split('T')[0];
-
-      await this.hass.callService('todo', 'add_item', {
-        item: summary,
-        due_date: dueString
+    try {
+      await this.hass.callService('todo', 'update_item', {
+        item: uid,
+        status: 'completed'
       }, { entity_id: entity });
-    }
 
-    fireEvent(this, 'calendar-event-tracker-update');
+      if (task_interval && task_interval > 0) {
+        const newDueDate = new Date();
+        newDueDate.setDate(newDueDate.getDate() + task_interval);
+        const dueString = newDueDate.toISOString().split('T')[0];
+
+        await this.hass.callService('todo', 'add_item', {
+          item: summary,
+          due_date: dueString
+        }, { entity_id: entity });
+      }
+
+      fireEvent(this, 'calendar-event-tracker-update');
+    } finally {
+      this.isUpdating = false;
+    }
   }
 
   // eslint-disable-next-line class-methods-use-this
   protected renderPicture (pictureUrl: string) {
+    if (this.isUpdating) {
+      return html`<ha-icon icon="mdi:loading" class="spin" style="width: 24px; height: 24px; margin: -12px 0; color: var(--primary-color)"></ha-icon>`;
+    }
     return html`
     <hui-image
       .image=${pictureUrl}
@@ -68,6 +79,13 @@ class BaseItemElement<T = {}> extends LitElement {
   protected renderIcon () {
     const isTodo = this.item?.content.entity?.startsWith('todo.');
     
+    if (this.isUpdating) {
+      return html`
+        <ha-tile-icon>
+          <ha-icon icon="mdi:loading" class="spin" style="color: var(--primary-color)"></ha-icon>
+        </ha-tile-icon>`;
+    }
+
     return html`
       <ha-tile-icon @click=${this.handleTaskClick} style="cursor: ${isTodo ? 'pointer' : 'default'}">
         <ha-state-icon

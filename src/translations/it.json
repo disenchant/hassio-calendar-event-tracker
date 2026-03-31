@@ -75,6 +75,7 @@
                 "show_completed": "Show completed tasks",
                 "highlight_today": "Evidenzia eventi di oggi",
                 "highlight_overdue": "Highlight overdue tasks",
+                "show_empty": "Show empty state",
         "drop_todayevents_from": "From what time to hide today's events",
         "full_size": "Card senza margini",
         "use_summary": "Usa l'oggetto dell'evento al posto dell'etichetta",
@@ -91,10 +92,10 @@
           "create": "Crea un nuovo modello",
           "new_custom_label": "Nuovo modello",
           "type": {
-            "organic": "Organico",
-            "paper": "Carta",
-            "recycle": "Plastica",
-            "waste": "Indifferenziato",
+            "type1": "Type 1",
+            "type2": "Type 2",
+            "type3": "Type 3",
+            "type4": "Type 4",
             "others": "Altro"
           },
           "fields": {

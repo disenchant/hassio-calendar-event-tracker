@@ -79,6 +79,7 @@
                 "show_completed": "Show completed tasks",
                 "highlight_today": "Mettre en évidence les événements du jour",
                 "highlight_overdue": "Highlight overdue tasks",
+                "show_empty": "Show empty state",
                 "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Carte sans marge",
                 "use_summary": "Résumé de l'événement au lieu de l'étiquette",
@@ -95,10 +96,10 @@
                     "create": "Créer un nouveau motif",
                     "new_custom_label": "Nouveau motif",
                     "type": {
-                        "organic": "Organique",
-                        "paper": "Papier",
-                        "recycle": "Recyclage",
-                        "waste": "Déchets",
+                        "type1": "Type 1",
+                        "type2": "Type 2",
+                        "type3": "Type 3",
+                        "type4": "Type 4",
                         "others": "Autres"
                     },
                     "fields": {

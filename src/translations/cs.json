@@ -79,6 +79,7 @@
                 "show_completed": "Show completed tasks",
                 "highlight_today": "Zvýraznit dnešní události",
                 "highlight_overdue": "Highlight overdue tasks",
+                "show_empty": "Show empty state",
                 "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Karta bez mezer",
                 "use_summary": "Shrnutí události místo popisu",
@@ -95,10 +96,10 @@
                     "create": "Vytvořit nový vzor",
                     "new_custom_label": "Nový vzor",
                     "type": {
-                        "organic": "Bio odpad",
-                        "paper": "Papír",
-                        "recycle": "Plasty",
-                        "waste": "Směsný odpad",
+                        "type1": "Type 1",
+                        "type2": "Type 2",
+                        "type3": "Type 3",
+                        "type4": "Type 4",
                         "others": "Ostatní"
                     },
                     "fields": {

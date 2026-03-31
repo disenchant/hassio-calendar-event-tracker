@@ -117,6 +117,7 @@ All the options listed below are available in the lovelace editor, but configuri
 | `next_days`         | number                                              | 2           | How many times the card will look into the future to find the next event. |
 | `max_items`         | number                                              | 5           | Global maximum number of events shown in the card. |
 | `show_completed`    | boolean                                             | `false`     | Show completed tasks in the card. |
+| `show_empty`        | boolean                                             | `false`     | Show a visual "All caught up!" state when there are no events/tasks to display. |
 | `highlight_today`   | boolean                                             | `true`      | Highlight today's events with a solid border. |
 | `highlight_overdue` | boolean                                             | `true`      | Highlight overdue tasks with a pulsating red border. |
 | `day_style`            | `default` or `counter` | `default`   | Option for how the date of an event should be displayed. `default` shows the date in date format and `counter` shows the number of days remaining before the event.       |
@@ -143,6 +144,7 @@ All the options listed below are available in the lovelace editor, but configuri
 | `pattern`           | string       | Required    | Pattern used to detect and display an event type. (Is tested against the calendar entry title). |
 | `picture`           | string       | Optional    | Picture URL do display an image instead of an icon. |
 | `max_items`         | number       | 1           | Maximum number of upcoming events to show for this pattern. |
+| `task_interval`     | number       | Optional    | (Todo entities only) How many days after completion the task should be automatically recreated. |
 
 #### Other type event configuration
 
@@ -150,6 +152,26 @@ All the options listed below are available in the lovelace editor, but configuri
 | :------------------ | :-------------------------------------------------- | :---------- | :---------------------------------------------------------------------------------- |
 | `icon`              | string                                              | Required    | The icon that will be displayed.  |
 | `color`             | string                                              | Required    | The background color of the card. Supports predefined color names or HEX color codes. |
+
+---
+
+### Recurring Tasks (Home Assistant Todo)
+
+Calendar Event Tracker seamlessly integrates with Home Assistant's `todo` entities. You can define recurring chore intervals directly inside the card!
+
+If you add a `task_interval` (in days) to a pattern, the card will automatically create a new task when the current one is clicked and marked as completed.
+
+**Example**: *Change the Bedding every 14 days*
+
+```yaml
+pattern:
+  - label: Change Bed Covers
+    icon: mdi:bed
+    color: indigo
+    pattern: Bed Covers
+    type: custom
+    task_interval: 14 # The next task is automatically created 14 days from completion!
+```
 
 ---
 

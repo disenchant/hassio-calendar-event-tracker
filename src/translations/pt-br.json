@@ -26,11 +26,11 @@
         "pattern": {
           "edit": "editar",
           "type": {
-            "paper": "Papel",
-            "waste": "Resíduos",
+            "type2": "Type 2",
+            "type4": "Type 4",
             "others": "Outros",
-            "organic": "Orgânico",
-            "recycle": "Reciclar"
+            "type1": "Type 1",
+            "type3": "Type 3"
           },
           "title": "Editar padrão",
           "create": "Criar novo padrão",
@@ -61,6 +61,7 @@
                 "show_completed": "Show completed tasks",
                 "highlight_today": "Destacar eventos de hoje",
                 "highlight_overdue": "Highlight overdue tasks",
+                "show_empty": "Show empty state",
         "event_grouping": "Exibir apenas o próximo evento por padrão",
         "fill_container": "Encha o contêiner",
         "hide_time_range": "Ocultar tempo",

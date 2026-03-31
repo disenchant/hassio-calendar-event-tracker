@@ -71,6 +71,7 @@
                 "show_completed": "Show completed tasks",
                 "highlight_today": "Izcelt šodienas notikumus",
                 "highlight_overdue": "Highlight overdue tasks",
+                "show_empty": "Show empty state",
                 "drop_todayevents_from": "From what time to hide today's events",
                 "full_size": "Kartiņa bez robežas",
                 "use_summary": "Notikuma kopsavilkums, nevis etiķete",
@@ -87,10 +88,10 @@
                     "create": "Pievienot filtru",
                     "new_custom_label": "Jauns filtrs",
                     "type": {
-                        "organic": "Bioloģiskie",
-                        "paper": "Iepakojums",
-                        "recycle": "Stikls",
-                        "waste": "Atkritumi",
+                        "type1": "Type 1",
+                        "type2": "Type 2",
+                        "type3": "Type 3",
+                        "type4": "Type 4",
                         "others": "Citi"
                     },
                     "fields": {
@@ -106,7 +107,14 @@
         }
     },
     "card": {
-        "not_found": "Vienība nav atrasta",
+        "not_found": {
+            "title": "Vienība nav atrasta",
+            "description": "Please select at least one calendar entity."
+        },
+        "empty": {
+            "title": "All caught up!",
+            "description": "Currently no events found."
+        },
         "event": {
             "today": "šodien",
             "tomorrow": "rīt",
