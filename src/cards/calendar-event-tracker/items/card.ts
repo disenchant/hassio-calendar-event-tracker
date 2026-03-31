@@ -86,7 +86,7 @@ class ItemCard extends BaseItemElement {
         }
 
         ha-card.today {
-          border: 2px solid var(--primary-text-color);
+          border: 2px solid var(--primary-color);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 

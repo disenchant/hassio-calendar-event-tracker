@@ -79,7 +79,7 @@ class IconCard extends BaseItemElement<{ nextEvent: boolean }> {
           display: grid;
         }
         ha-card.today .badge {
-          border: 2px solid var(--primary-text-color);
+          border: 2px solid var(--primary-color);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
         ha-card.overdue .badge {

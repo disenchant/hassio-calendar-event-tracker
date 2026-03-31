@@ -83,9 +83,9 @@ class ItemChip extends BaseItemElement {
         }
 
         ha-badge.today {
-          --ha-badge-border-color: var(--primary-text-color);
+          --ha-badge-border-color: var(--primary-color);
           --ha-badge-border-width: 2px;
-          border: 2px solid var(--primary-text-color);
+          border: 2px solid var(--primary-color);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
         
