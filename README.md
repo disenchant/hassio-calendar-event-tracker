@@ -2,11 +2,6 @@
 
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
-[![hacs_badge](https://img.shields.io/badge/HACS-DEFAULT-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
-
-![Project Maintenance][maintenance-shield]
-[![GitHub Activity][commits-shield]][commits]
-![downloads][downloads-badge]
 ![Build][build-badge]
 
 <a href="https://www.buymeacoffee.com/idaho" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/white_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
@@ -256,19 +251,10 @@ pattern:
 This project is based on the original [hassio-trash-card](https://github.com/idaho/hassio-trash-card) created by Florian Triebel.
 
 <!-- Badges -->
-
-
-[commits-shield]: https://img.shields.io/github/commit-activity/y/disenchant/hassio-calendar-event-tracker.svg?style=for-the-badge
-[commits]: https://github.com/disenchant/hassio-calendar-event-tracker/commits/main
 [license-shield]: https://img.shields.io/github/license/disenchant/hassio-calendar-event-tracker.svg?style=for-the-badge
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2024.svg?style=for-the-badge
 [releases-shield]: https://img.shields.io/github/release/disenchant/hassio-calendar-event-tracker.svg?style=for-the-badge
 [releases]: https://github.com/disenchant/hassio-calendar-event-tracker/releases
-[downloads-badge]: https://img.shields.io/github/downloads/disenchant/hassio-calendar-event-tracker/total?style=for-the-badge
 [build-badge]: https://img.shields.io/github/actions/workflow/status/disenchant/hassio-calendar-event-tracker/build.yml?label=Build&style=for-the-badge
-
-
-
 
 <!-- References -->
 [home-assistant]: https://www.home-assistant.io/
