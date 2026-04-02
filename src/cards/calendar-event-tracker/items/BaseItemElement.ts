@@ -17,6 +17,10 @@ class BaseItemElement<T = {}> extends LitElement {
 
   @state() protected isUpdating = false;
 
+  @state() protected pendingCompletion = false;
+
+  private completionTimeout?: ReturnType<typeof setTimeout>;
+
   protected withBackground = false;
 
   protected getPictureUrl () {
@@ -38,42 +42,76 @@ class BaseItemElement<T = {}> extends LitElement {
       return;
     }
 
-    this.isUpdating = true;
-
-    try {
-      await this.hass.callService('todo', 'update_item', {
-        item: uid,
-        status: 'completed'
-      }, { entity_id: entity });
-
-      if (task_interval && task_interval > 0) {
-        const newDueDate = new Date();
-        newDueDate.setDate(newDueDate.getDate() + task_interval);
-        const dueString = newDueDate.toISOString().split('T')[0];
-
-        await this.hass.callService('todo', 'add_item', {
-          item: summary,
-          due_date: dueString
-        }, { entity_id: entity });
+    if (this.pendingCompletion) {
+      // Cancel the completion
+      if (this.completionTimeout) {
+        clearTimeout(this.completionTimeout);
+        this.completionTimeout = undefined;
       }
-
-      fireEvent(this, 'calendar-event-tracker-update');
-    } finally {
-      this.isUpdating = false;
+      this.pendingCompletion = false;
+      return;
     }
+
+    // Start 5-second grace period
+    this.pendingCompletion = true;
+
+    this.completionTimeout = setTimeout(async () => {
+      this.pendingCompletion = false;
+      this.isUpdating = true;
+
+      try {
+        await this.hass!.callService('todo', 'update_item', {
+          item: uid,
+          status: 'completed'
+        }, { entity_id: entity });
+
+        if (task_interval && task_interval > 0) {
+          const newDueDate = new Date();
+          newDueDate.setDate(newDueDate.getDate() + task_interval);
+          const dueString = newDueDate.toISOString().split('T')[0];
+
+          await this.hass!.callService('todo', 'add_item', {
+            item: summary,
+            due_date: dueString
+          }, { entity_id: entity });
+        }
+
+        fireEvent(this, 'calendar-event-tracker-update');
+      } finally {
+        this.isUpdating = false;
+      }
+    }, 5000);
   }
 
   // eslint-disable-next-line class-methods-use-this
   protected renderPicture (pictureUrl: string) {
     if (this.isUpdating) {
-      return html`<ha-icon icon="mdi:loading" class="spin" style="width: 24px; height: 24px; margin: -12px 0; color: var(--primary-color)"></ha-icon>`;
+      return html`
+        <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+          <ha-icon icon="mdi:loading" class="spin" style="width: 24px; height: 24px; color: var(--primary-color)"></ha-icon>
+        </div>`;
     }
+    
+    if (this.pendingCompletion) {
+      return html`
+      <div class="hui-image-wrapper" @click=${this.handleTaskClick} style="position: relative; display: flex; align-items: center; justify-content: center; cursor: pointer; width: 48px; height: 48px;">
+        <hui-image
+          .image=${pictureUrl}
+          .hass=${this.hass}
+          style="opacity: 0.3; width: 24px; height: 24px;"
+        ></hui-image>
+        <ha-icon icon="mdi:undo-variant" style="position: absolute; color: var(--primary-text-color); width: 24px; height: 24px;"></ha-icon>
+      </div>`;
+    }
+
     return html`
-    <hui-image
-      .image=${pictureUrl}
-      .hass=${this.hass}
-      @click=${this.handleTaskClick}
-    ></hui-image>`;
+    <div class="hui-image-wrapper" @click=${this.handleTaskClick} style="display: flex; align-items: center; justify-content: center; cursor: ${this.item?.content.entity?.startsWith('todo.') ? 'pointer' : 'default'}; width: 48px; height: 48px;">
+      <hui-image
+        .image=${pictureUrl}
+        .hass=${this.hass}
+        style="width: 24px; height: 24px;"
+      ></hui-image>
+    </div>`;
   }
 
   protected renderIcon () {
@@ -81,20 +119,27 @@ class BaseItemElement<T = {}> extends LitElement {
     
     if (this.isUpdating) {
       return html`
-        <ha-tile-icon>
-          <ha-icon icon="mdi:loading" class="spin" style="color: var(--primary-color)"></ha-icon>
-        </ha-tile-icon>`;
+        <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+          <ha-tile-icon>
+            <ha-icon icon="mdi:loading" class="spin" style="color: var(--primary-color)"></ha-icon>
+          </ha-tile-icon>
+        </div>`;
     }
 
+    const badgeIcon = this.pendingCompletion ? 'mdi:undo-variant' : 
+                      this.item?.content.status === 'completed' ? 'mdi:check-circle' : 'mdi:circle-outline';
+
     return html`
-      <ha-tile-icon @click=${this.handleTaskClick} style="cursor: ${isTodo ? 'pointer' : 'default'}">
-        <ha-state-icon
-          slot="icon"
-          .icon=${this.item?.icon}
-          .hass=${this.hass}
-        ></ha-state-icon>
-        ${isTodo ? html`<ha-tile-badge slot="badge" .icon=${this.item?.content.status === 'completed' ? 'mdi:check-circle' : 'mdi:circle-outline'}></ha-tile-badge>` : nothing}
-      </ha-tile-icon>`;
+      <div class="hui-image-wrapper" @click=${this.handleTaskClick} style="cursor: ${isTodo ? 'pointer' : 'default'}; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; opacity: ${this.pendingCompletion ? 0.6 : 1}">
+        <ha-tile-icon>
+          <ha-state-icon
+            slot="icon"
+            .icon=${this.item?.icon}
+            .hass=${this.hass}
+          ></ha-state-icon>
+          ${isTodo ? html`<ha-tile-badge slot="badge" .icon=${badgeIcon}></ha-tile-badge>` : nothing}
+        </ha-tile-icon>
+      </div>`;
   }
 }
 

@@ -35,7 +35,9 @@ class ItemChip extends BaseItemElement {
       today: daysTillToday === 0 && (highlight_today ?? true) && !isOverdue,
       tomorrow: daysTillToday === 1 && !isOverdue,
       another: daysTillToday > 1 && !isOverdue,
-      overdue: isOverdue
+      overdue: isOverdue,
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      'pending-completion': this.pendingCompletion
     };
 
     const pictureUrl = this.getPictureUrl();
@@ -49,7 +51,9 @@ class ItemChip extends BaseItemElement {
 
     const chipStyle = {
       ...style,
-      cursor: isTask ? 'pointer' : 'default'
+      cursor: isTask ? 'pointer' : 'default',
+      opacity: this.pendingCompletion ? '0.6' : '1',
+      textDecoration: this.pendingCompletion ? 'line-through' : 'none'
     };
 
     return html`

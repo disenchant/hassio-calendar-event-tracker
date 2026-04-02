@@ -38,7 +38,9 @@ class IconCard extends BaseItemElement<{ nextEvent: boolean }> {
       another: daysTillToday > 1 && !isOverdue,
       overdue: isOverdue,
       nextEvent: this.item.nextEvent,
-      futureEvent: !this.item.nextEvent
+      futureEvent: !this.item.nextEvent,
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      'pending-completion': this.pendingCompletion
     };
 
     const pictureUrl = this.getPictureUrl();
@@ -47,7 +49,8 @@ class IconCard extends BaseItemElement<{ nextEvent: boolean }> {
 
     const cardStyle = {
       ...style,
-      cursor: isTask ? 'pointer' : 'default'
+      cursor: isTask ? 'pointer' : 'default',
+      opacity: this.pendingCompletion ? '0.6' : '1'
     };
 
     return html`

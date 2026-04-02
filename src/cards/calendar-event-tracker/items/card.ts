@@ -43,7 +43,11 @@ class ItemCard extends BaseItemElement {
 
     const pictureUrl = this.getPictureUrl();
 
-    const contentClasses = { vertical: layout === 'vertical' };
+    const contentClasses = { 
+      vertical: layout === 'vertical',
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      'pending-completion': this.pendingCompletion
+    };
 
     return html`
       <ha-card style=${styleMap(style)} class=${classMap(cssClasses)}>
@@ -59,6 +63,7 @@ class ItemCard extends BaseItemElement {
             ></ha-tile-info>
           </div>
         </div>
+        ${this.pendingCompletion ? html`<div class="progress-bar"></div>` : ''}
       </ha-card>
     `;
   }
@@ -83,6 +88,29 @@ class ItemCard extends BaseItemElement {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .progress-bar {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 4px;
+          background-color: var(--primary-color);
+          width: 100%;
+          transform-origin: left;
+          animation: progress 5s linear forwards;
+        }
+
+        @keyframes progress {
+          0% { transform: scaleX(0); }
+          100% { transform: scaleX(1); }
+        }
+
+        .content.pending-completion ha-tile-info {
+          opacity: 0.6;
+          text-decoration: line-through;
         }
 
         ha-card.today {
@@ -152,17 +180,20 @@ class ItemCard extends BaseItemElement {
           flex: 0 0 auto;
         }
 
-        ha-tile-icon,
-        hui-image {
+        .hui-image-wrapper {
           --tile-icon-color: var(--tile-color);
           user-select: none;
           -ms-user-select: none;
           -webkit-user-select: none;
           -moz-user-select: none;
           position: relative;
-          padding: 6px;
-          margin: -6px;
           pointer-events: auto;
+          margin: -10px 0px;
+        }
+        
+        ha-tile-icon,
+        hui-image {
+          pointer-events: none;
         }
 
         hui-image {
